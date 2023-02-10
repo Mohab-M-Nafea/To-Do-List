@@ -1,0 +1,30 @@
+aside .list-row{
+    position: relative;
+}
+
+aside .list-row .delete{
+    position: absolute;
+    right: 10px;
+}
+
+section .task-row{
+    position: relative;
+}
+
+section .task-row .state{
+    position: absolute;
+    left: 10px;
+}
+
+.offcanvas .offcanvas-body{
+    position: relative;
+}
+
+.offcanvas-body .delete{
+    position: absolute;
+    bottom: 10px;
+}
+
+a .delete:hover{
+    background-color: #f8f9fa;
+}
