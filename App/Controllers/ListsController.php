@@ -6,7 +6,7 @@ class ListsController
      * get all lists for current user and tasks for current list
      * @param $listId id for list to get all task for specific list or get last list if no id pass
      */
-    public function index($listId = '')
+    public function index($listId = '', $err = '')
     {
         $lists = new ToDoLists();
         $data['lists'] = $lists->getAllLists();
@@ -26,6 +26,9 @@ class ListsController
             }
 
             $data['pageName'] = $currentList['list_title'];
+            if($err !== ''){
+                $data['err'] = $err;
+            }
         } else{
             $data['pageName'] = 'To Do List';
         }
@@ -40,11 +43,16 @@ class ListsController
     {
         if (isset($_POST["add_list"])) {
             $listTitle = filter_var($_POST["list_title"], FILTER_SANITIZE_STRING);
+            $err_message = '';
 
             $lists = new ToDoLists();
-            $lists->addNewList($listTitle);
+            if(empty($lists->checkTitle($listTitle))){
+                $lists->addNewList($listTitle);
+            } else {
+                $err_message = 'this list is already exist';
+            }
 
-            $this->index();
+            $this->index(err: $err_message);
         } else{
             $this->index();
         }
