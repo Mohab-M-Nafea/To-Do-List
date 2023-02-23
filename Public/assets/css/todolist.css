@@ -28,3 +28,8 @@ section .task-row .state{
 a .delete:hover{
     background-color: #f8f9fa;
 }
+
+div.signup-form,
+div.login-form{
+    min-width: 100px;
+}
