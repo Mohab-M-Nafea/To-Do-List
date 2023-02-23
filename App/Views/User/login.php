@@ -1,8 +1,8 @@
 <?php include 'layout/header.php' ?>
 
 <main class="container d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 56px);">
-    <div class="w-25 text-center">
-        <?php if (isset($err)) { ?>
+    <div class="login-form w-25 text-center">
+        <?php if (isset($err)) : ?>
 
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -13,9 +13,9 @@
                 </div>
             </div>
 
-        <?php } ?>
-        
-        <h1 class="mb-3">Log In</h1>
+        <?php endif ?>
+
+        <h1 class="mb-3  ms-auto">Log In</h1>
         <form class="text-dark" id="login-form" method="POST">
             <div class="form-floating mb-3 ">
                 <input type="text" id="username" class="form-control" name="username" placeholder="username" />

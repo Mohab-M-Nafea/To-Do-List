@@ -1,20 +1,20 @@
 <?php include 'layout/header.php' ?>
 
 <main class="container d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 56px);">
-    <div class="w-25 text-center">
+    <div class="signup-form w-25 text-center">
 
-        <?php if (isset($err)) { ?>
+        <?php if (isset($err)) : ?>
 
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <div>
 
                     <?php echo $err ?>
-                    
+
                 </div>
             </div>
 
-        <?php } ?>
+        <?php endif ?>
 
         <h1 class="mb-3">Sign Up</h1>
         <form class="text-dark" id="signup-form" method="POST">
@@ -39,7 +39,7 @@
                 <label for="password">Password</label>
             </div>
             <div class="form-floating mb-4">
-                <input type="password" id="password-confirm" class="form-control" name="password-confirm" placeholder="Confirm Password" required/>
+                <input type="password" id="password-confirm" class="form-control" name="password-confirm" placeholder="Confirm Password" required />
                 <label for="password-confirm">Confirm Password</label>
             </div>
             <input type="submit" name="signup" class="btn btn-primary" value="Sign Up" />
